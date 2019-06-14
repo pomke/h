@@ -26,7 +26,7 @@ func JsonResponse(w http.ResponseWriter, val interface{}, code ...int) {
 }
 
 // Unmarshal http.Request.Body into a target struct, closes Body.
-func JsonBody(r *http.Response, target interface{}) error {
+func JsonBody(r *http.Request, target interface{}) error {
 	defer r.Body.Close()
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
