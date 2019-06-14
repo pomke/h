@@ -15,6 +15,8 @@ func JsonResponse(w http.ResponseWriter, val interface{}, code ...int) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Cache-Control", "no-store")
+	w.Header().Set("Pragma", "no-cache")
 	if len(code) > 0 {
 		w.WriteHeader(code[0])
 	} else {
